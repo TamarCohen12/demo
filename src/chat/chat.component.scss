@@ -1,0 +1,115 @@
+:host {
+    position: fixed;
+    bottom: 16px;
+    left: 16px;
+    z-index: 1000;
+    font-family: 'Arial', sans-serif;
+}
+
+.chat-button {
+    width: 56px;
+    height: 56px;
+    background-color: #0078d4;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.chat-window {
+    direction: rtl;
+    position: fixed;
+    bottom: 80px;
+    left: 16px;
+    width: 320px;
+    max-height: 80vh;
+    min-height: 40vh;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.chat-header {
+    background-color: #0078d4;
+    color: white;
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 12px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .response-link {
+        display: block;
+        color: #0078d4;
+        text-decoration: none;
+        cursor: pointer;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.chat-messages .user {
+    align-self: flex-end;
+    background-color: #e0f7fa;
+    color: #004d40;
+    padding: 8px 12px;
+    border-radius: 18px 18px 0 18px;
+    max-width: 75%;
+}
+
+.chat-messages .bot {
+    align-self: flex-start;
+    background-color: #f1f1f1;
+    color: #333;
+    padding: 8px 12px;
+    border-radius: 18px 18px 18px 0;
+    max-width: 75%;
+}
+
+.chat-input {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #eee;
+    gap: 6px;
+}
+
+.chat-input input {
+    flex: 1;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 8px 12px;
+    outline: none;
+}
+
+.chat-input button {
+    background-color: #0078d4;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.loading-indicator {
+    text-align: center;
+    color: #555;
+    font-style: italic;
+    margin-bottom: 10px;
+}

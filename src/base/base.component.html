@@ -1,0 +1,24 @@
+<div class="base-component">
+  <ng-container *ngTemplateOutlet="customTitleTemplate || defaultTitleTemplate"></ng-container>
+  <textarea [(ngModel)]="model.userInput" placeholder="Enter your text here"></textarea>
+  <ng-container *ngTemplateOutlet="customColorTemplate || defaultColorTemplate"></ng-container>
+</div>
+
+
+<ng-template #defaultTitleTemplate>
+  <h2>base</h2>
+</ng-template>
+
+<ng-template #defaultColorTemplate>
+  <div class="color-circles">
+    <span>colors:</span>
+    <ng-container *ngFor="let color of model?.colors">
+      <ng-container *ngTemplateOutlet="customColorItemTemplate || defaultColorItemTemplate; context: { $implicit: color }">
+      </ng-container>
+    </ng-container>
+  </div>
+</ng-template>
+
+<ng-template #defaultColorItemTemplate let-color>
+  <div class="circle" [style.background-color]="color"></div>
+</ng-template>

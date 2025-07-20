@@ -1,0 +1,10 @@
+<p>implement2 works!</p>
+<app-base [model]="this">
+  <ng-template #customTitle>
+    <h3>{{title}}</h3>
+  </ng-template>
+
+  <ng-template #customColorItem let-color>
+    <div class="custom-circle" [style.background-color]="color">{{color}}</div>
+  </ng-template>
+</app-base>

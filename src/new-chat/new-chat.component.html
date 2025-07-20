@@ -1,0 +1,86 @@
+<!-- Chat Toggle Button -->
+<div class="chat-container" [class.open]="isOpen">
+  <!-- Chat Button (when closed) -->
+  <button class="ai-button" *ngIf="!isOpen" (click)="toggleChat()" aria-label="פתח צ'אט">
+    <div class="icon">
+      <!--TODO: move it to assets-->
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2L13.09 6.26L17 7.27L14 10.14L14.82 14L12 12L9.18 14L10 10.14L7 7.27L10.91 6.26L12 2Z" />
+        <path d="M5 13L5.545 15.09L7.5 15.5L6 17L6.545 19L5 18L3.455 19L4 17L2.5 15.5L4.455 15.09L5 13Z" />
+        <path d="M19 13L19.545 15.09L21.5 15.5L20 17L20.545 19L19 18L17.455 19L18 17L16.5 15.5L18.455 15.09L19 13Z" />
+      </svg>
+    </div>
+    <div class="label">
+      סוכן AI
+    </div>
+  </button>
+
+  <!-- Chat Window (when open) -->
+  <div *ngIf="isOpen" class="chat-window">
+    <!-- Chat Header -->
+    <div class="chat-header">
+      <button class="close-btn" (click)="toggleChat()" aria-label="סגור צ'אט">
+        <!--TODO: move it to assets-->
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 6L6 18M6 6L18 18" stroke="#7049A1" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Chat Messages -->
+    <div class="chat-messages" #messagesContainer>
+      <div *ngFor="let msg of messages; trackBy: trackByIndex"  [ngClass]="msg.sender === 'user'? 'message user-message' : 'message bot-message'">
+            <div class="user-icon">
+                 <svg *ngIf="msg.sender === 'bot'" width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L13.09 6.26L17 7.27L14 10.14L14.82 14L12 12L9.18 14L10 10.14L7 7.27L10.91 6.26L12 2Z" />
+                    <path d="M5 13L5.545 15.09L7.5 15.5L6 17L6.545 19L5 18L3.455 19L4 17L2.5 15.5L4.455 15.09L5 13Z" />
+                    <path d="M19 13L19.545 15.09L21.5 15.5L20 17L20.545 19L19 18L17.455 19L18 17L16.5 15.5L18.455 15.09L19 13Z" />
+                </svg>
+                <span *ngIf="msg.sender === 'user'">U</span>
+            </div>
+            <div [ngClass]="msg.sender === 'user'? 'message-text user-message' : 'message-text bot-message'">
+                 {{ msg.content?.answer || msg.content }}
+                  <a class="response-link" *ngIf="msg.content?.maanim" (click)="openResponses(msg.content?.maanim)"><span *ngIf="msg.content?.maanim">לפתיחת המענים</span> </a>
+            </div>
+      </div>
+
+      <!-- Loading indicator -->
+      <div *ngIf="loading" class="message bot-message">
+        <div class="message-content">
+          <div class="message-bubble loading-bubble">
+            <div class="typing-indicator">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chat Input -->
+    <div class="chat-input">
+      <div class="input-container">
+        <input 
+          type="text" 
+          [(ngModel)]="message" 
+          (keyup.enter)="sendMessage()"
+          [disabled]="!initialized || loading"
+          class="message-input"
+          #messageInput>
+        <button 
+          class="send-btn" 
+          (click)="sendMessage()"
+          [disabled]="!message.trim() || !initialized || loading"
+          aria-label="שלח הודעה">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g transform="scale(-1,1) translate(-24,0)">
+                <path d="M3 20V4L22 12L3 20ZM5 17L16.85 12L5 7V10.5L11 12L5 13.5V17Z" fill="#6B46C1"/>
+            </g>
+        </svg>
+
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

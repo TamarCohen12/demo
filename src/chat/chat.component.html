@@ -1,0 +1,34 @@
+<!-- Floating Button -->
+<div class="chat-button" (click)="toggleChat()">
+    <span class="icon" *ngIf="!isOpen">💬</span>
+    <span class="icon" *ngIf="isOpen">✕</span>
+</div>
+
+<!-- Chat Window -->
+<div class="chat-window" *ngIf="isOpen">
+  <div class="chat-header">
+    <span>צ'אט בוט</span>
+    <button (click)="toggleChat()">✕</button>
+  </div>
+
+  <div class="chat-messages">
+    <div *ngFor="let msg of messages" [ngClass]="msg.sender">
+      <span *ngIf="msg.sender === 'bot'">
+            {{ msg.content?.answer || msg.content}}
+        <a class="response-link" *ngIf="msg.content?.maanim" (click)="openResponses(msg.content?.maanim)">לפתיחת המענים</a>
+      </span>
+      <span *ngIf="msg.sender === 'user'">{{ msg.content }}</span>
+    </div>
+  </div>
+<div *ngIf="loading" class="loading-indicator">
+  ⏳ טוען תשובה...
+</div>
+  <div class="chat-input">
+    <input
+      [(ngModel)]="message"
+      (keydown.enter)="sendMessage()"
+      placeholder="הקלד הודעה..."
+    />
+    <button (click)="sendMessage()">שלח</button>
+  </div>
+</div>
