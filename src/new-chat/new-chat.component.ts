@@ -24,6 +24,8 @@ export class NewChatComponent implements OnInit, AfterViewChecked {
   private shouldScrollToBottom = false;
   @Input() userName: string = "ישראל";
   userInfo: UserInfoResponse | null = null;
+  chat_history: any[] = [];
+
   constructor(private chatService: ChatService) {}
 
   ngOnInit(): void {
@@ -94,13 +96,29 @@ export class NewChatComponent implements OnInit, AfterViewChecked {
     this.loading = true;
     this.shouldScrollToBottom = true;
 
-    this.chatService.askQuestion(trimmed, this.userInfo).subscribe({
+    this.chatService.askQuestion(trimmed, this.userInfo,this.chat_history).subscribe({
       next: (res) => {
         let finalAnswer = "";
         try {
+          res.answer = res.answer.replace('\"', '"')
           finalAnswer = JSON.parse(res.answer);
+          this.chat_history.push(res.summary);
         } catch {
+          // finalAnswer = res.answer || 'לא התקבלה תשובה.';
+           const jsonMatch = this.extractJsonFromText(res.answer);
+      
+      if (jsonMatch) {
+        try {
+          finalAnswer = JSON.parse(jsonMatch);
+          this.chat_history.push(res.summary);
+        } catch {
+          // אם גם החלק שנראה כמו JSON לא תקין
           finalAnswer = res.answer || 'לא התקבלה תשובה.';
+        }
+      } else {
+        // אם לא נמצא JSON כלל
+        finalAnswer = res.answer || 'לא התקבלה תשובה.';
+      }
         }
         
         const botMsg: ChatMessage = {
@@ -125,6 +143,34 @@ export class NewChatComponent implements OnInit, AfterViewChecked {
       }
     });
   }
+
+  private extractJsonFromText(text: string): string | null {
+  if (!text) return null;
+  
+  // חיפוש תחילת האובייקט הראשון
+  const startIndex = text.indexOf('{');
+  if (startIndex === -1) return null;
+  
+  // חיפוש סוף האובייקט - ספירת סוגריים
+  let braceCount = 0;
+  let endIndex = -1;
+  
+  for (let i = startIndex; i < text.length; i++) {
+    if (text[i] === '{') {
+      braceCount++;
+    } else if (text[i] === '}') {
+      braceCount--;
+      if (braceCount === 0) {
+        endIndex = i + 1;
+        break;
+      }
+    }
+  }
+  
+  if (endIndex === -1) return null;
+  
+  return text.substring(startIndex, endIndex);
+}
 
   openResponses(maanimList: string): void {
     alert(`פתיחת מענים: ${maanimList}`);

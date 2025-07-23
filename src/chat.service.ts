@@ -21,9 +21,9 @@ export class ChatService {
     return this.http.post(`${this.apiUrl}/initialize`, {});
   }
 
-  askQuestion(question: string,userInfo: UserInfoResponse | null): Observable<any> {
+  askQuestion(question: string,userInfo: UserInfoResponse|null,chatHistory:any[]): Observable<any> {
     // const params = new HttpParams().set('question', question);
-    return this.http.post(`${this.apiUrl}/ask`, {maanimWithKriteryonim: userInfo?.maanimWithKriteryonim, taktzivimLemosad: userInfo?.taktzivimLemosad, question });
+    return this.http.post(`${this.apiUrl}/ask`, {maanimWithKriteryonim: userInfo?.maanimWithKriteryonim, taktzivimLemosad: userInfo?.taktzivimLemosad,chat_history:chatHistory, question });
   }
 
 

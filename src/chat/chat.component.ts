@@ -60,7 +60,7 @@ export class ChatComponent {
     this.loading = true;
 
 
-    this.chatService.askQuestion(trimmed, this.userInfo).subscribe({
+    this.chatService.askQuestion(trimmed, this.userInfo,[]).subscribe({
       next: (res) => {
         let finalAnswer = "";
         try{

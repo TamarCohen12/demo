@@ -31,12 +31,15 @@
     <div class="chat-messages" #messagesContainer>
       <div *ngFor="let msg of messages; trackBy: trackByIndex"  [ngClass]="msg.sender === 'user'? 'message user-message' : 'message bot-message'">
             <div class="user-icon">
-                 <svg *ngIf="msg.sender === 'bot'" width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                 <svg *ngIf="msg.sender === 'bot'" width="20" height="20" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 2L13.09 6.26L17 7.27L14 10.14L14.82 14L12 12L9.18 14L10 10.14L7 7.27L10.91 6.26L12 2Z" />
                     <path d="M5 13L5.545 15.09L7.5 15.5L6 17L6.545 19L5 18L3.455 19L4 17L2.5 15.5L4.455 15.09L5 13Z" />
                     <path d="M19 13L19.545 15.09L21.5 15.5L20 17L20.545 19L19 18L17.455 19L18 17L16.5 15.5L18.455 15.09L19 13Z" />
                 </svg>
-                <span *ngIf="msg.sender === 'user'">U</span>
+                  <svg *ngIf="msg.sender === 'user'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="white">
+                    <circle cx="32" cy="20" r="12"/>
+                    <path d="M32 36c-12 0-22 6-22 14v2h44v-2c0-8-10-14-22-14z"/>
+                  </svg>
             </div>
             <div [ngClass]="msg.sender === 'user'? 'message-text user-message' : 'message-text bot-message'">
                  {{ msg.content?.answer || msg.content }}

@@ -3,123 +3,123 @@ import { TaktzivItem, UserInfoResponse } from "../app/models/userInfo.model";
 export const mockUserInfo : UserInfoResponse = {
   taktzivimLemosad: [
     {
-      "SUG_MAKOR_TAKTIV": 120,
-      "TEUR_SUG_MAKOR_TAKTZIV": "תקציב כללי - חירום מחוזי",
+      "code": 120,
+      "teur": "תקציב כללי - חירום מחוזי",
       "taktzivKavua": false
     },
     {
-      "SUG_MAKOR_TAKTIV": 8,
-      "TEUR_SUG_MAKOR_TAKTZIV": "סל מענים פדגוגיים ורגשיים ",
+      "code": 8,
+      "teur": "סל מענים פדגוגיים ורגשיים ",
       "taktzivKavua": false
     },
     {
-      "SUG_MAKOR_TAKTIV": 9,
-      "TEUR_SUG_MAKOR_TAKTZIV": "סל חינוך חברתי - קהילתי והעשרה",
+      "code": 9,
+      "teur": "סל חינוך חברתי - קהילתי והעשרה",
       "taktzivKavua": false
     } ,
     {
-      "SUG_MAKOR_TAKTIV": 10,
-      "TEUR_SUG_MAKOR_TAKTZIV": "סל אוכלוסיות במיקוד",
+      "code": 10,
+      "teur": "סל אוכלוסיות במיקוד",
       "taktzivKavua": false
     } ,
     {
-      "SUG_MAKOR_TAKTIV": 12,
-      "TEUR_SUG_MAKOR_TAKTZIV": "סל תשתיות בית ספריות",
+      "code": 12,
+      "teur": "סל תשתיות בית ספריות",
       "taktzivKavua": false
     } ,
     {
-      "SUG_MAKOR_TAKTIV": 13,
-      "TEUR_SUG_MAKOR_TAKTZIV": "סל קידום רווחת התלמיד",
-      "taktzivKavua": true
-    } ,
-    {
-      "SUG_MAKOR_TAKTIV": 15,
-      "TEUR_SUG_MAKOR_TAKTZIV": "הכלה והשתלבות",
-      "taktzivKavua": true
-    } ,
-    {
-      "SUG_MAKOR_TAKTIV": 39,
-      "TEUR_SUG_MAKOR_TAKTZIV": "תקציב מחוזי לליווי דיפרנציאלי",
-      "taktzivKavua": true
-    } ,
-    {
-      "SUG_MAKOR_TAKTIV": 19,
-      "TEUR_SUG_MAKOR_TAKTZIV": "תשתית אינטרנט",
-      "taktzivKavua": true
-    } ,
-    {
-      "SUG_MAKOR_TAKTIV": 29,
-      "TEUR_SUG_MAKOR_TAKTZIV": "מייקרוסופט",
-      "taktzivKavua": true
-    } ,
-    {
-      "SUG_MAKOR_TAKTIV": 40,
-      "TEUR_SUG_MAKOR_TAKTZIV": "תוכן דיגיטלי",
-      "taktzivKavua": true
-    } ,
-    {
-      "SUG_MAKOR_TAKTIV": 25,
-      "TEUR_SUG_MAKOR_TAKTZIV": "חיים ביחד בחברה הישראלית",
-      "taktzivKavua": true
-    } ,
-    {
-      "SUG_MAKOR_TAKTIV": 14,
-      "TEUR_SUG_MAKOR_TAKTZIV": "תקציב כללי ",
-      "taktzivKavua": true
-    } ,
-    {
-      "SUG_MAKOR_TAKTIV": 17,
-      "TEUR_SUG_MAKOR_TAKTZIV": "תוכנות ניהול",
+      "code": 13,
+      "teur": "סל קידום רווחת התלמיד",
       "taktzivKavua": false
     } ,
     {
-      "SUG_MAKOR_TAKTIV": 160,
-      "TEUR_SUG_MAKOR_TAKTZIV": "תוכנית עבודה מכלל התקציבים התוספתיים",
+      "code": 15,
+      "teur": "הכלה והשתלבות",
       "taktzivKavua": false
     } ,
     {
-      "SUG_MAKOR_TAKTIV": 26,
-      "TEUR_SUG_MAKOR_TAKTZIV": "תרבות יהודית ישראלית",
-      "taktzivKavua": true
-    } ,
-    {
-      "SUG_MAKOR_TAKTIV": 123,
-      "TEUR_SUG_MAKOR_TAKTZIV": "סל אוכלוסיות במיקוד",
+      "code": 39,
+      "teur": "תקציב מחוזי לליווי דיפרנציאלי",
       "taktzivKavua": false
     } ,
     {
-      "SUG_MAKOR_TAKTIV": 44,
-      "TEUR_SUG_MAKOR_TAKTZIV": "העברת תקציב משנה לשנה",
-      "taktzivKavua": true
-    } ,
-    {
-      "SUG_MAKOR_TAKTIV": 126,
-      "TEUR_SUG_MAKOR_TAKTZIV": "סל קידום רווחת התלמיד",
+      "code": 19,
+      "teur": "תשתית אינטרנט",
       "taktzivKavua": false
     } ,
     {
-      "SUG_MAKOR_TAKTIV": 121,
-      "TEUR_SUG_MAKOR_TAKTZIV": "סל מענים פדגוגיים ורגשיים ",
+      "code": 29,
+      "teur": "מייקרוסופט",
       "taktzivKavua": false
-    }  ,
+    } ,
     {
-      "SUG_MAKOR_TAKTIV": 124,
-      "TEUR_SUG_MAKOR_TAKTZIV": "סל מנהיגות חינוכית",
+      "code": 40,
+      "teur": "תוכן דיגיטלי",
+      "taktzivKavua": false
+    } ,
+    {
+      "code": 25,
+      "teur": "חיים ביחד בחברה הישראלית",
+      "taktzivKavua": false
+    } ,
+    {
+      "code": 14,
+      "teur": "תקציב כללי ",
+      "taktzivKavua": false
+    } ,
+    {
+      "code": 17,
+      "teur": "תוכנות ניהול",
+      "taktzivKavua": false
+    } ,
+    {
+      "code": 160,
+      "teur": "תוכנית עבודה מכלל התקציבים התוספתיים",
+      "taktzivKavua": false
+    } ,
+    {
+      "code": 26,
+      "teur": "תרבות יהודית ישראלית",
+      "taktzivKavua": false
+    } ,
+    {
+      "code": 123,
+      "teur": "סל אוכלוסיות במיקוד",
+      "taktzivKavua": false
+    } ,
+    {
+      "code": 44,
+      "teur": "העברת תקציב משנה לשנה",
+      "taktzivKavua": false
+    } ,
+    {
+      "code": 126,
+      "teur": "סל קידום רווחת התלמיד",
+      "taktzivKavua": false
+    } ,
+    {
+      "code": 121,
+      "teur": "סל מענים פדגוגיים ורגשיים ",
       "taktzivKavua": false
     }  ,
     {
-      "SUG_MAKOR_TAKTIV": 125,
-      "TEUR_SUG_MAKOR_TAKTZIV": "סל תשתיות בית ספריות",
+      "code": 232,
+      "teur": "סל מנהיגות חינוכית",
+      "taktzivKavua": true
+    }  ,
+    {
+      "code": 125,
+      "teur": "סל תשתיות בית ספריות",
       "taktzivKavua": false
     }  ,
     {
-      "SUG_MAKOR_TAKTIV": 11,
-      "TEUR_SUG_MAKOR_TAKTZIV": "סל מנהיגות חינוכית",
+      "code": 11,
+      "teur": "סל מנהיגות חינוכית",
       "taktzivKavua": false
     }  ,
     {
-      "SUG_MAKOR_TAKTIV": 122,
-      "TEUR_SUG_MAKOR_TAKTZIV": "סל חינוך חברתי - קהילתי והעשרה",
+      "code": 122,
+      "teur": "סל חינוך חברתי - קהילתי והעשרה",
       "taktzivKavua": false
     }  
   ],
